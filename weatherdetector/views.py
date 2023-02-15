@@ -27,7 +27,8 @@ class homepage(View):
 					"coordinate": str(json_data['coord']['lon']) + ' ' + str(json_data["coord"]["lat"]),
 					"temp" : str(round(json_data["main"]["temp"]-273, 2)) + "°C",
 					"pressure": str(json_data["main"]["pressure"]) + "Pa",
-					"humidity": str(json_data["main"]["humidity"]) + "g.m-3"
+					"humidity": str(json_data["main"]["humidity"]) + "g.m-3", 
+					"city": city
 				}
 			else:
 				#Null queries
