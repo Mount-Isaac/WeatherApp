@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>weather</title>
+</head>
+<body>
+	{% block content %}
+
+		<form action="#" method="POST"> {% csrf_token %}
+			{%	include 'search_bar.html' %}
+		</form>
+		<!-- Get Backend Weather Data -->
+ 		<div style="padding-left: 267px;">
+ 			{% if error_type  %}
+				<p>{{city|title}} {{error_type}}</p>
+			{% else %}
+				<p style="font-size: 20px; font-display: block;">Country code: {{country_code}}</p>
+				<div style="font-size: 15px;">
+					<p>Coordinate:  {{coordinate}}</p>
+					<p>Temperature: {{temp}}</p>
+					<p>Pressure: {{pressure}}</p>
+					<p>Humidity: {{humidity}}</p>
+				</div>
+			{% endif %}
+
+		</div>
+
+	{% endblock %}
+</body>
+</html>
